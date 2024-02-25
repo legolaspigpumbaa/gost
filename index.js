@@ -1,9 +1,9 @@
 const sudo = require('sudo-prompt');
 const options = {
-  name: 'Your Application Name',
+  name: 'pargar',
 };
 
-const command = 'echo hi ';
+const command = 'sudo sysctl net.ipv4.ip_forward=1';
 
 sudo.exec(command, options, function(error, stdout, stderr) {
   if (error) throw error;
