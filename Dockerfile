@@ -20,24 +20,23 @@
 
 
 
-# استفاده از تصویر رسمی Python به عنوان پایه
-FROM python:3.8-slim
-
-# تنظیم محیط
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# کپی کردن فایلهای مورد نیاز
-COPY requirements.txt /app/requirements.txt
-
-# تنصیب وابستگی‌ها
-RUN pip install --no-cache-dir -r /app/requirements.txt
-
-# کپی کردن کدهای برنامه
-COPY app.py /app/app.py
+# استفاده از تصویر رسمی Node.js به عنوان پایه
+FROM node:14-alpine
 
 # تنظیم کار دایرکتوری به /app
 WORKDIR /app
 
+# کپی کردن فایل‌های مورد نیاز
+COPY package.json .
+
+# نصب وابستگی‌ها
+RUN npm install
+
+# کپی کردن کدهای برنامه
+COPY . .
+
+# پورتی که برنامه از آن استفاده می‌کند
+EXPOSE 3000
+
 # دستور اجرا شده وقتی کانتینر راه‌اندازی می‌شود
-CMD ["python", "app.py"]
+CMD ["node", "index.js"]
