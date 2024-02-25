@@ -4,7 +4,7 @@ FROM ubuntu:latest
 EXPOSE 80 443
 
 # install 
-RUN sudo apt install wget nano -y
+RUN apt install wget nano -y
 
 # download gost
 RUN wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz && \
