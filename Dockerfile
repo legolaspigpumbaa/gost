@@ -34,7 +34,7 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # کپی کردن کدهای برنامه
-COPY app /app
+COPY app.py /app/app.py
 
 # تنظیم کار دایرکتوری به /app
 WORKDIR /app
