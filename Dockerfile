@@ -17,26 +17,3 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Start supervisord
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
-
-
-
-# # استفاده از تصویر رسمی Node.js به عنوان پایه
-# FROM node:14-alpine
-
-# # تنظیم کار دایرکتوری به /app
-# WORKDIR /app
-
-# # کپی کردن فایل‌های مورد نیاز
-# COPY package.json .
-
-# # نصب وابستگی‌ها
-# RUN npm install
-
-# # کپی کردن کدهای برنامه
-# COPY . .
-
-# # پورتی که برنامه از آن استفاده می‌کند
-# EXPOSE 3000
-
-# # دستور اجرا شده وقتی کانتینر راه‌اندازی می‌شود
-# CMD ["node", "index.js"]
