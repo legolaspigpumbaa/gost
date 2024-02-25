@@ -1,0 +1,11 @@
+[Unit]
+Description=GO Simple Tunnel
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/gost -L=tcp://:443/tongue.thepargar.site:443 -L=tcp://:80/tongue.thepargar.site:80
+
+[Install]
+WantedBy=multi-user.target
