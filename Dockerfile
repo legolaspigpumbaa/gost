@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Ports
-EXPOSE 2095 443
+EXPOSE 80
 
 # Install necessary packages
 RUN apt update && apt install wget nano supervisor -y
